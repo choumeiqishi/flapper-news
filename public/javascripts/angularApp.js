@@ -3,7 +3,7 @@ var app = angular.module('flapperNews', ['ui.router']);
 app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 	$stateProvider.state('home', {
 		url: '/home',
-		templateUrl: '/home.html',
+		templateUrl: '/templates/home.html',
 		controller: 'MainCtrl',
 		resolve: {
 			postPromise: ['posts', function(posts){
@@ -13,7 +13,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 	})
 	.state('posts', {
 		url: '/posts/{id}',
-		templateUrl: '/posts.html',
+		templateUrl: '/templates/posts.html',
 		controller: 'PostsCtrl',
 		resolve: {
 			post: ['$stateParams', 'posts', function($stateParams, posts){
@@ -23,7 +23,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 	})
 	.state('/register', {
 		url: '/register',
-		templateUrl: '/register.html',
+		templateUrl: '/templates/register.html',
 		controller: 'AuthCtrl',
 		onEnter: ['$state', 'auth', function($state, auth){
 			if (auth.isLoggedIn()) {
@@ -33,7 +33,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 	})
 	.state('/login', {
 		url: '/login',
-		templateUrl: '/login.html',
+		templateUrl: '/templates/login.html',
 		controller: 'AuthCtrl',
 		onEnter: ['$state', 'auth', function($state, auth){
 			if (auth.isLoggedIn()) {
